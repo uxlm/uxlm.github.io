@@ -10,6 +10,17 @@ ORG_LOGO ="https://uxlm.github.io/images/internet.gif"
 ORG_DESCRIPTION="The User Xperience Lab Model (often referred to as UX Lab Model) is typically a framework used in the field of user experience (UX) design and research. While there isn't a universally accepted definition of this specific term, the concept generally revolves around creating an environment where designers, researchers, and stakeholders can collaborate to understand user needs, behaviors, and preferences."
 
 [[CURRENCIES]]
+code="UXLM"
+name="User Experience Language Mode"
+issuer="GAM6QAAOIE4LA4HSM6YUAG7RX4NSJ5IOZ6QFFK5QMJKGTCZWG4XSQWFC"
+desc="By leveraging advanced natural language processing and machine learning techniques, UXLM aims to understand user intent, preferences, and behaviors to deliver personalized and intuitive interactions."
+image="https://uxlm.github.io/images/uxlm.webp"
+conditions="Enhanced collaboration across teams, fostering a culture of innovation."
+fixed_number=700000000000
+is_asset_anchored=false
+display_decimals=7
+
+[[CURRENCIES]]
 code="GUI"
 name="graphical user interface"
 issuer="GDXDFUJGC7ZDNTFKZUORDSNXM3GFUSYJMFPLYP32P3Z46PG3NGEHYPLX"
