@@ -1,1 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon - UXLM Beauty</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 3em;
+            margin: 0;
+            color: #d5006d; /* A vibrant pink */
+        }
+        p {
+            font-size: 1.2em;
+            margin: 20px 0;
+        }
+        .countdown {
+            font-size: 2em;
+            font-weight: bold;
+            color: #d5006d;
+        }
+        .social-icons {
+            margin-top: 30px;
+        }
+        .social-icons a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #d5006d;
+            font-size: 1.5em;
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Coming Soon!</h1>
+        <p>We are working hard to create something beautiful for you.</p>
+        <div class="countdown">
+            <span id="days">00</span>d : 
+            <span id="hours">00</span>h : 
+            <span id="minutes">00</span>m : 
+            <span id="seconds">00</span>s
+        </div>
+        <p>Stay tuned for updates!</p>
+        <div class="social-icons">
+            <a href="#" target="_blank">🌐</a>
+            <a href="#" target="_blank">📸</a>
+            <a href="#" target="_blank">📘</a>
+        </div>
+        <footer>
+            &copy; 2023 UXLM Beauty. All Rights Reserved.
+        </footer>
+    </div>
 
+    <script>
+        // Countdown timer logic
+        const countdownDate = new Date("2024-01-01T00:00:00").getTime(); // Set your launch date here
+        const countdownFunction = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("minutes").innerHTML = minutes;
+            document.getElementById("seconds").innerHTML = seconds;
+
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                document.querySelector(".container").innerHTML = "<h1>We're Live!</h1><p>Thank you for your patience.</p>";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
