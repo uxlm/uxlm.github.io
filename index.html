@@ -3,41 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="UXLM - Coming Soon">
-    <title>UXLM - Coming Soon</title>
+    <title>Coming Soon - UXLM</title>
     <style>
         body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             color: #333;
             text-align: center;
-            padding: 50px;
+        }
+        .container {
+            max-width: 600px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
         h1 {
-            font-size: 50px;
+            font-size: 2.5em;
             margin-bottom: 20px;
         }
-        h2 {
-            font-size: 30px;
-            margin-bottom: 40px;
+        p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
         }
-        .countdown {
-            font-size: 24px;
-            margin: 20px 0;
-        }
-        .subscribe {
-            margin-top: 30px;
+        .email-signup {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
         }
         input[type="email"] {
             padding: 10px;
-            width: 250px;
-            border: 1px solid #ccc;
+            font-size: 1em;
+            border: 1px solid #ddd;
             border-radius: 5px;
+            margin-right: 10px;
+            width: 300px;
         }
         button {
             padding: 10px 20px;
-            background-color: #007BFF;
+            font-size: 1em;
             color: white;
+            background-color: #007BFF;
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -48,52 +59,13 @@
     </style>
 </head>
 <body>
-
-    <h1>UXLM</h1>
-    <h2>Coming Soon!</h2>
-    <div class="countdown" id="countdown">
-        <p>Launching in:</p>
-        <p id="time"></p>
+    <div class="container">
+        <h1>Coming Soon!</h1>
+        <p>We're working hard to bring UXLM to you. Stay tuned for updates!</p>
+        <div class="email-signup">
+            <input type="email" placeholder="Enter your email" required>
+            <button>Notify Me</button>
+        </div>
     </div>
-
-    <div class="subscribe">
-        <p>Stay updated! Subscribe to our newsletter:</p>
-        <input type="email" placeholder="Enter your email" id="email" required>
-        <button onclick="subscribe()">Subscribe</button>
-    </div>
-
-    <script>
-        // Countdown Timer
-        const launchDate = new Date("December 31, 2026 00:00:00").getTime();
-
-        const countdownFunction = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = launchDate - now;
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById("time").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-
-            if (distance < 0) {
-                clearInterval(countdownFunction);
-                document.getElementById("time").innerHTML = "We're Live!";
-            }
-        }, 1000);
-
-        // Subscribe Function
-        function subscribe() {
-            const email = document.getElementById("email").value;
-            if (email) {
-                alert("Thank you for subscribing with " + email + "!");
-                document.getElementById("email").value = ''; // Clear input
-            } else {
-                alert("Please enter a valid email address.");
-            }
-        }
-    </script>
-
 </body>
 </html>
