@@ -3,101 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon - UXLM Beauty</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="description" content="UXLM - Coming Soon">
+    <title>UXLM - Coming Soon</title>
     <style>
         body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Roboto', sans-serif;
-            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
             color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             text-align: center;
-        }
-        .container {
-            max-width: 600px;
-            padding: 20px;
-            background: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 50px;
         }
         h1 {
-            font-size: 3em;
-            margin: 0;
-            color: #d5006d; /* A vibrant pink */
+            font-size: 50px;
+            margin-bottom: 20px;
         }
-        p {
-            font-size: 1.2em;
-            margin: 20px 0;
+        h2 {
+            font-size: 30px;
+            margin-bottom: 40px;
         }
         .countdown {
-            font-size: 2em;
-            font-weight: bold;
-            color: #d5006d;
+            font-size: 24px;
+            margin: 20px 0;
         }
-        .social-icons {
+        .subscribe {
             margin-top: 30px;
         }
-        .social-icons a {
-            margin: 0 10px;
-            text-decoration: none;
-            color: #d5006d;
-            font-size: 1.5em;
+        input[type="email"] {
+            padding: 10px;
+            width: 250px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
-        footer {
-            margin-top: 20px;
-            font-size: 0.9em;
-            color: #777;
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Coming Soon!</h1>
-        <p>We are working hard to create something beautiful for you.</p>
-        <div class="countdown">
-            <span id="days">00</span>d : 
-            <span id="hours">00</span>h : 
-            <span id="minutes">00</span>m : 
-            <span id="seconds">00</span>s
-        </div>
-        <p>Stay tuned for updates!</p>
-        <div class="social-icons">
-            <a href="#" target="_blank">🌐</a>
-            <a href="#" target="_blank">📸</a>
-            <a href="#" target="_blank">📘</a>
-        </div>
-        <footer>
-            &copy; 2023 UXLM Beauty. All Rights Reserved.
-        </footer>
+
+    <h1>UXLM</h1>
+    <h2>Coming Soon!</h2>
+    <div class="countdown" id="countdown">
+        <p>Launching in:</p>
+        <p id="time"></p>
+    </div>
+
+    <div class="subscribe">
+        <p>Stay updated! Subscribe to our newsletter:</p>
+        <input type="email" placeholder="Enter your email" id="email" required>
+        <button onclick="subscribe()">Subscribe</button>
     </div>
 
     <script>
-        // Countdown timer logic
-        const countdownDate = new Date("2025-04-04T00:00:00").getTime(); // Set your launch date here
-        const countdownFunction = setInterval(() => {
+        // Countdown Timer
+        const launchDate = new Date("December 31, 2026 00:00:00").getTime();
+
+        const countdownFunction = setInterval(function() {
             const now = new Date().getTime();
-            const distance = countdownDate - now;
+            const distance = launchDate - now;
 
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            document.getElementById("days").innerHTML = days;
-            document.getElementById("hours").innerHTML = hours;
-            document.getElementById("minutes").innerHTML = minutes;
-            document.getElementById("seconds").innerHTML = seconds;
+            document.getElementById("time").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
 
             if (distance < 0) {
                 clearInterval(countdownFunction);
-                document.querySelector(".container").innerHTML = "<h1>We're Live!</h1><p>Thank you for your patience.</p>";
+                document.getElementById("time").innerHTML = "We're Live!";
             }
         }, 1000);
+
+        // Subscribe Function
+        function subscribe() {
+            const email = document.getElementById("email").value;
+            if (email) {
+                alert("Thank you for subscribing with " + email + "!");
+                document.getElementById("email").value = ''; // Clear input
+            } else {
+                alert("Please enter a valid email address.");
+            }
+        }
     </script>
+
 </body>
 </html>
